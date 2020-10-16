@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.8.5/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.8.5/themes/icon.css">
+    <script type="text/javascript" src="jquery-easyui-1.8.5/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-1.8.5/jquery.easyui.min.js"></script>
+    <style type="text/css">
+        .icon-save-my{
+            background:url('../static/image/timg2.png') no-repeat center;
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 200px auto;width: 500px">
+<div id="p2" class="easyui-panel" style="width:500px;height:200px;padding:10px;"
+     title="My Panel" data-options="iconCls:'icon-save-my',collapsible:true">
+
+    <form id="myForm" >
+        <table border="0px" width="280px" height="140px" align="center">
+            <tr>
+                <td colspan="2" style="font-size: 20px;font-weight: bold;text-align: center">用户登录</td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td><input type="text" name="username"/></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="password" name="password"/></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <a id="btnSubmit" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">登录</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        $("#btnSubmit").click(function () {
+            $("#myForm").form({
+                url:"login",
+                onSubmit: function () {
+                    //return false;
+                },
+                success: function (data) {
+                    //alert(data);
+                    if(data == 'success'){
+                        location.href = "/index";
+                    }
+                    else {
+                        location.href = "/easyiu";
+                    }
+                }
+            });
+            $("#myForm").submit();
+        });
+    </script>
+</div>
+</div>
+</body>
+</html>
